@@ -10,7 +10,7 @@ use Module::Pluggable
 use base qw( Class::Accessor::Lvalue );
 __PACKAGE__->mk_accessors(qw( _backend _published ));
 
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 sub new {
     my $class = shift;

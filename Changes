@@ -1,3 +1,6 @@
+0.03	Friday 18th February, 2005
+	Fix the null backend
+
 0.02	Friday 18th February, 2005
 	Add a Null backend, so we don't blow up if people didn't
 	fricking install one.
