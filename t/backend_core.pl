@@ -1,7 +1,6 @@
 use Sys::Hostname;
 use Test::More tests => 5;
 use Net::Rendezvous::Publish;
-use Net::Rendezvous;
 
 my $type  = "_madeup._tcp.";
 my $name  = "$class $type $$";
