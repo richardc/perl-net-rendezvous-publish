@@ -58,7 +58,7 @@ Net::Rendezvous::Publish - publish Rendezvous services
    or die "couldn't make a Responder object";
  my $sevice = $publisher->publish(
      name => "My HTTP Server",
-     type => 'http',
+     type => '_http._tcp',
      port => 12345,
  );
  while (1) { $publisher->step( 0.01 ) }
@@ -78,12 +78,35 @@ keys are meaningful in the service definition hash.
 
 =over
 
+=item name
+
+A descriptive name for the service.
+
 =item type
+
+The type of service.  This is string of the form _service._protocol.
+
+=item port
+
+The port on which you're advertising the service.  If you're not using
+a port (and instead just using mDNS as a way of propogating other
+service information) it's common practice to use 9 (the discard
+service)
+
+=item domain
+
+The domain in which to advertise a service.  Defaults to C<local.>
 
 =back
 
+=head TODO
+
+At some point I may learn enough of the mDNS protocol to write a
+pure-perl responder.  That'll be nifty.
 
 =head1 SEE ALSO
+
+L<Net::Rendezous> - for service browsing.
 
 L<Net::Rendezvous::Publish::Backend::*> - you'll need one of these to talk
 to your local mDNS responder.
