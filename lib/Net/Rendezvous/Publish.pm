@@ -56,7 +56,7 @@ Net::Rendezvous::Publish - publish Rendezvous services
  use Net::Rendezvous::Publish;
  my $publisher = Net::Rendezvous::Publish->new
    or die "couldn't make a Responder object";
- my $sevice = $publisher->publish(
+ my $service = $publisher->publish(
      name => "My HTTP Server",
      type => '_http._tcp',
      port => 12345,
