@@ -10,8 +10,8 @@ __PACKAGE__->mk_accessors(qw( _session _handle name type port domain published )
 
 =head1 SYNOPSIS
 
-  use Net::ZeroConf;
-  my $z = Net::ZeroConf->new;
+  use Net::Rendezvous::Publish;
+  my $z = Net::Rendezvous::Publish->new;
   # publish a webserver on an odd port
   my $service = $z->publish( name => "My Webserver",
                              type => "_http._tcp",
@@ -23,6 +23,18 @@ __PACKAGE__->mk_accessors(qw( _session _handle name type port domain published )
   $service->stop;
 
 =head1 DESCRIPTION
+
+A Net::Rendezvous::Publish::Service represents a service you tried to
+publish.
+
+You never create one directly, and instead are handed one by the
+publish method.
+
+=head1 METHODS
+
+=head2 stop
+
+Stop advertising the service.
 
 =cut
 
@@ -39,3 +51,23 @@ sub _publish_callback {
 }
 
 1;
+
+__END__
+
+=head1 AUTHOR
+
+Richard Clamp <richardc@unixbeard.net>
+
+=head1 COPYRIGHT
+
+Copyright 2004, Richard Clamp.  All Rights Reserved.
+
+This program is free software; you can redistribute it
+and/or modify it under the same terms as Perl itself.
+
+=head1 SEE ALSO
+
+Net::Rendezvous::Publish - the module this module supports
+
+=cut
+
