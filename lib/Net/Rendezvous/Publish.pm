@@ -49,14 +49,19 @@ __END__
 
 =head1 NAME
 
-Net::ZeroConf - perl interface to ZeroConf/Rendezvous
+Net::Rendezvous::Publish - publish Rendezvous services
 
 =head1 SYNOPSIS
 
- use YAML;
- use Net::ZeroConf;
- my $zeroconf = Net::ZeroConf->new or die "couldn't make a ZeroConf object";
- print "Known services:\n", Dump $zeroconf->services;
+ use Net::Rendezvous::Publish;
+ my $publisher = Net::Rendezvous::Publish->new
+   or die "couldn't make a Responder object";
+ my $sevice = $publisher->publish(
+     name => "My HTTP Server",
+     type => 'http',
+     port => 12345,
+ );
+ while (1) { $publisher->step( 0.01 ) }
 
 =head1 DESCRIPTION
 
@@ -64,14 +69,23 @@ Net::ZeroConf - perl interface to ZeroConf/Rendezvous
 
 =head2 new
 
-Create a new zeroconf interface
+Creates a new publisher handle
 
-=head2 services
+=head2 publish( %definition )
 
-list the known services
+Returns a Net::Rendezvous::Publish::Service object.  The following
+keys are meaningful in the service definition hash.
+
+=over
+
+=item type
+
+=back
+
 
 =head1 SEE ALSO
 
-L<Net::ZeroConf::Backend> - notes for backend writers
+L<Net::Rendezvous::Publish::Backend::*> - you'll need one of these to talk
+to your local mDNS responder.
 
 =cut

@@ -6,7 +6,7 @@ __PACKAGE__->mk_accessors(qw( _session _handle name type port domain published )
 
 =head1 NAME
 
-  Net::ZeroConf::Service - a service on a zeroconf network
+  Net::Rendezvous::Publish::Service - a Rendezvous odvertised service
 
 =head1 SYNOPSIS
 
@@ -37,6 +37,5 @@ sub _publish_callback {
     my $result = shift;
     $self->published = $result eq 'success' ? 1 : 0;
 }
-
 
 1;
