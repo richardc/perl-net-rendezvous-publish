@@ -1,0 +1,6 @@
+0.02	Friday 18th February, 2005
+	Add a Null backend, so we don't blow up if people didn't
+	fricking install one.
+
+0.01	February 21st, 2004
+	Initial CPAN release
