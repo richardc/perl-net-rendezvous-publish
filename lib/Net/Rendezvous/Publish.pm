@@ -99,10 +99,26 @@ The domain in which to advertise a service.  Defaults to C<local.>
 
 =back
 
+=head2 step( $seconds )
+
+Spend at most $seconds seconds handling network events and updating
+internal state.
+
 =head TODO
 
 At some point I may learn enough of the mDNS protocol to write a
 pure-perl responder.  That'll be nifty.
+
+=head1 AUTHOR
+
+Richard Clamp <richardc@unixbeard.net>
+
+=head1 COPYRIGHT
+
+Copyright 2004, Richard Clamp.  All Rights Reserved.
+
+This program is free software; you can redistribute it
+and/or modify it under the same terms as Perl itself.
 
 =head1 SEE ALSO
 
