@@ -19,6 +19,8 @@ sub new {
     my $self = $class->SUPER::new;
 
     my ($backend) = $args{backend} || $self->backends;
+    die "No backends installed. Install one of Net::Rendezvous::Publish::Backend::*" unless $backend;
+
     eval "require $backend" or die $@;
     return unless $backend;
     $self->_backend = $backend->new
