@@ -1,4 +1,4 @@
-package Net::ZeroConf::Service;
+package Net::Rendezvous::Publish::Service;
 use strict;
 use warnings;
 use base qw( Class::Accessor::Lvalue );
