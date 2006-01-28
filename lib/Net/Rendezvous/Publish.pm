@@ -10,7 +10,7 @@ use Module::Pluggable
 use base qw( Class::Accessor::Lvalue );
 __PACKAGE__->mk_accessors(qw( _backend _published ));
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 sub new {
     my $class = shift;
@@ -18,7 +18,7 @@ sub new {
 
     my $self = $class->SUPER::new;
 
-    my ($backend) = $args{backend} || $self->backends;
+    my ($backend) = $args{backend} || (grep !/::Null$/, $self->backends)[0];
     $backend ||= "Net::Rendezvous::Publish::Backend::Null";
 
     eval "require $backend" or die $@;
@@ -117,7 +117,7 @@ Richard Clamp <richardc@unixbeard.net>
 
 =head1 COPYRIGHT
 
-Copyright 2004, 2005, Richard Clamp.  All Rights Reserved.
+Copyright 2004, 2005, 2006, Richard Clamp.  All Rights Reserved.
 
 This program is free software; you can redistribute it
 and/or modify it under the same terms as Perl itself.
